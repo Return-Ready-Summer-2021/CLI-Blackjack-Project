@@ -1,4 +1,4 @@
-public class User {
+public class Player {
 
 //    method to view first card
 //    viewFirstCard(Hand[0]);
@@ -7,5 +7,6 @@ public class User {
 //    }
 //    PlayerHand[];
 //    OptionChecker;
+
 
 }
