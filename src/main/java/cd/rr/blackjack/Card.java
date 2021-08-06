@@ -2,7 +2,7 @@ package cd.rr.blackjack;
 
 import cd.rr.blackjack.CardENUM.*;
 
-class Card {
+public class Card {
 
     // use switch case for rank
 
