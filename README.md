@@ -3,7 +3,7 @@
 ## Description
 You will create a Blackjack game in the command line. The following should be possible:
 
-* The system should store the deck as a shuffled list of Cards, each card represented as a Suit and Rank
+* The system should store the deck as a shuffled list of Card, each card represented as a Suit and Rank
 * Bonus: The system should represent Suit and Rank as Enums
 * The system should deal two cards from the deck to both the dealer and player
 * The user can view one of the cards the dealer was dealt
