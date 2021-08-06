@@ -13,6 +13,8 @@ public class Main {
         java.lang.System.out.println(BJDeck.deck);
 
 
+<<<<<<< HEAD
+=======
         Scanner input = new Scanner(System.in);
 
         System.out.println("        Welcome to BlackJack!      ");
@@ -27,6 +29,7 @@ public class Main {
         System.out.println("7. You can only double/split on the first move, or first move of a hand created by a split.");
         System.out.println("8. The goal of blackjack is to beat the dealer's hand without going over 21.");
         System.out.println("9. Face cards are worth 10. Aces are worth 1 or 11, whichever makes a better hand.");
+>>>>>>> 573bed150be85247777e30abb4ccf524d3337380
 
     }
 }
