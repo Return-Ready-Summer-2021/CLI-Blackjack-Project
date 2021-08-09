@@ -4,8 +4,6 @@ import cd.rr.blackjack.CardENUM.*;
 
 public class Card {
 
-    // use switch case for rank
-
      private Suit suit;
      private Rank rank;
 

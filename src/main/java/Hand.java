@@ -7,6 +7,7 @@ public class Hand {
     public void addCard(Card card){
         theHand[numOfCards++] = card;
     }
+
     public int calculateTotal() {
         int total =0;
         boolean aceFlag = false;
