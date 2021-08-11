@@ -24,6 +24,7 @@ public class CardENUM {
             return Rank;
         }
     }
+
     public enum Suit {
         CLUBS,
         DIAMONDS,

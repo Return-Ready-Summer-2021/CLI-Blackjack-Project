@@ -9,6 +9,8 @@ public class Card {
      private Suit suit;
      private Rank rank;
 
+     Card() {}
+
 
     public Card(Suit s, Rank r) {
         suit = s;
@@ -31,6 +33,6 @@ public class Card {
     }
 
     public String toString() {
-        return suit + " :: " + rank;
+        return rank + " of " + suit;
     }
 }
