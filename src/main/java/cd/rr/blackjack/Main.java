@@ -10,38 +10,65 @@ public class Main extends BJS {
 
     public static void main(String[] args) {
         BJS BJ = new BJS();
+        Scanner input = new Scanner(System.in);
+        char playAgainChar;
 
 
-        BJ.startDeal();
+//        BJ.startDeal();
 //        BJ.viewDealerHand();
 
 //        BJ.optionChecker();
         // testing
-        System.out.println(BJ.playerHand.getHand());
-        System.out.println(BJ.bjDeck.deck.size());
-        System.out.println(BJ.getScore());
+//        System.out.println(BJ.playerHand.getHand());
+//        System.out.println(BJ.bjDeck.deck.size());
+//        System.out.println(BJ.getScore());
+        BJ.discardDeck.deck.clear();
+        System.out.print("What is your name?: ");
+        BJ.player.setName(input.nextLine());
+        System.out.print("How many chips would you like to start with?: ");
+        BJ.player.setTotalChip(input.nextInt());
+        if (BJ.player.totalChip == 0) {
+            System.out.println("You cant play with out any chips!");
+            System.out.println("Come back when you have chips to spare.");
+            System.exit(0);
+        }
+        System.out.println("\n\n");
+        String playAgain;
 
 
+        BJ.rules();
+        BJS.wait(5000);
+        do {
+            if (BJ.player.totalChip == 0) {
+                System.out.println("You have run out of chips!");
+                System.out.println("Come back when You've got more!");
+                System.exit(0);
+            }
+            System.out.println("\n\n");
+            BJ.startDeal();
+            BJ.optionChecker();
+            BJ.dealerHit();
+            BJ.scoreChecker();
+            System.out.print("Would you like to play again?(y/n): ");
+
+            playAgain = input.next();
+            playAgainChar = playAgain.charAt(0);
+            if (playAgainChar != 'y' && playAgainChar != 'n') {
+                do {
+
+                    System.out.println("Not an input stupid, try again");
+                    playAgain = input.next();
+                    playAgainChar = playAgain.charAt(0);
+                } while ((playAgainChar != 'y' && playAgainChar != 'n'));
+            }
+            if (playAgainChar == 'y') {
+                BJ.clearScore();
+                BJ.clearHand();
+                System.out.println("Reseting...");
+                BJS.wait(2000);
+            }
 
 
-
-
-
-
-
-
-
-//        System.out.println("        Welcome to BlackJack!      ");
-//        System.out.println("---------------------------------------");
-//        System.out.println("          Here are the rules          ");
-//        System.out.println("1. Each player starts with two cards, one of the dealer's cards is hidden until the end.");
-//        System.out.println("2. To 'Hit' is to ask for another card. To 'Stand' is to hold your total and end your turn.");
-//        System.out.println("3. If you go over 21 you bust, and the dealer wins regardless of the dealer's hand.");
-//        System.out.println("4. cd.rr.blackjack.Dealer will hit until his/her cards total 17 or higher.");
-//        System.out.println("5. Doubling is like a hit, only the bet is doubled and you only get one more card.");
-//        System.out.println("6. Split can be done when you have two of the same card - the pair is split into two hands.");
-//        System.out.println("7. You can only double/split on the first move, or first move of a hand created by a split.");
-//        System.out.println("8. The goal of blackjack is to beat the dealer's hand without going over 21.");
-//        System.out.println("9. Face cards are worth 10. Aces are worth 1 or 11, whichever makes a better hand.");
+        }while (playAgainChar == 'y');
     }
 }

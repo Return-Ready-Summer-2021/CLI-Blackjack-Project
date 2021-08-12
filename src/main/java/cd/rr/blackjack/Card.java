@@ -3,9 +3,8 @@ package cd.rr.blackjack;
 import cd.rr.blackjack.CardENUM.*;
 
 public class Card {
-
-     private Suit suit;
-     private Rank rank;
+    Suit suit;
+    Rank rank;
 
      Card() {}
 
