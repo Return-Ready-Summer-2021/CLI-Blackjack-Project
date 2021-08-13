@@ -23,7 +23,7 @@ public class BJS {
         System.out.println("1. Each player starts with two cards, one of the dealer's cards is hidden until the end.");
         System.out.println("2. To 'Hit' is to ask for another card. To 'Stand' is to hold your total and end your turn.");
         System.out.println("3. If you go over 21 you bust, and the dealer wins regardless of the dealer's hand.");
-        System.out.println("4. cd.rr.blackjack.Dealer will hit until his/her cards total 17 or higher.");
+        System.out.println("4. Dealer will hit until his/her cards total 17 or higher.");
         System.out.println("5. Doubling is like a hit, only the bet is doubled and you only get one more card.");
         System.out.println("6. Split can be done when you have two of the same card - the pair is split into two hands.");
         System.out.println("7. You can only double/split on the first move, or first move of a hand created by a split.");
@@ -73,6 +73,11 @@ public class BJS {
 
     }
 
+    public void restartDeck() {
+        bjDeck.deck.addAll(discardDeck.deck);
+        discardDeck.deck.clear();
+        deckShuffle();
+    }
 
     public void optionChecker() {
 
@@ -81,6 +86,10 @@ public class BJS {
         char o;
         int cardSlot;
         do {
+            if (bjDeck.deck.size() == 0){
+                restartDeck();
+            }
+
             System.out.println("Which option would you like to choose: hit, split, double, or stand? ");
             optionChecker = scanner.next();
             o = optionChecker.charAt(0);
@@ -219,17 +228,19 @@ public class BJS {
                 }
             }
 
-
             System.out.println(getPlayerScore());
             System.out.println(getSplitPlayerScore());
         }
-        while (player.score < 21);
+        while (player.score < 21 || o != 'd');
         System.out.println("Turn over.");
     }
 
     public void dealerHit() {
         if ((dealer.score < player.score || dealer.score < 17)) {
             do {
+                if (bjDeck.deck.size() == 0){
+                    restartDeck();
+                }
                 viewableDealerHand.hand.add(bjDeck.deck.get(0));
                 bjDeck.deck.remove(0);
                 int cardSlot = viewableDealerHand.hand.size() - 1;
@@ -249,8 +260,6 @@ public class BJS {
 
     }
 
-
-
     public ArrayList<Card> getPlayerHand() {
         return playerHand.hand;
     }
@@ -259,7 +268,6 @@ public class BJS {
         viewableDealerHand.hand.add(dealerHand.hand.get(1));
         dealerHand.hand.remove(1);
     }
-
 
 
     public ArrayList<Card> viewDealerHand() {
@@ -509,10 +517,14 @@ public class BJS {
 
     }
     void scoreChecker() {
+        System.out.println(player.name + " cards: " + getPlayerHand());
         System.out.println("Dealer's Cards: " + getDealerHand());
         addDealerScore(viewableDealerHand.hand.size() - 1);
         System.out.println(player.name + "'s score: " + getPlayerScore());
-        System.out.println(player.name + "'s 2nd Hand score: " + getSplitPlayerScore());
+        if (splitPlayerHand.hand.size() > 0){
+            System.out.println(player.name + "'s 2nd Hand: " + splitPlayerHand.getHand());
+            System.out.println(player.name + "'s 2nd Hand score: " + getSplitPlayerScore());
+        }
         System.out.println("Dealer's score: " + getDealerScore());
         if (player.score > dealer.score && player.score <= 21) {
             System.out.println(player.getName() + " wins!");
@@ -524,11 +536,14 @@ public class BJS {
             System.out.println("Dealer wins");
 
         }
-        else if (player.score > 21 && dealer.score < 21) {
+        else if (player.score > 21 && dealer.score <= 21) {
             System.out.println(player.getName() + " busts, Dealer wins!");
 
         }
-        else if (dealer.score > 21 && player.score < 21) {
+        else if (player.score >21 && dealer.score >21){
+            System.out.println("Both bust, you lose! ");
+        }
+        else if (dealer.score > 21 && player.score <= 21) {
             System.out.println("Dealer busts, " + player.getName() + " wins!");
             player.totalChip += player.bet * 1.5;
             System.out.println(player.name + " won " + (player.bet * 1.5) + " chips!");
@@ -556,34 +571,4 @@ public class BJS {
         // if it does, it interrupts the current thread (thread.sleep
     }
 
-
-
-
-
-    public static void main(String[] args) {
-
-
-        //Start here!
-        // use to shuffle array of deck
-        // Collections.shuffle();
-
-        // startDeal()
-        // PlayerHand[0] = Deck[0]
-        // Deck.remove[0]
-        // PlayerHand[1]
-
-        // h = hit;
-        // if (player has 2 cards of same value
-        // sp = split;
-        // d = double;
-        // turn ends after picked
-        // st = stand;
-        // turn ends after picked
-
-        //mid game dealer
-        // do {
-        // dealerHand[] += Deck[0]
-        // }
-        // while (dealerHand <= 21 || dealerHand > 17 || dealerHand > playerHand
-    }
 }

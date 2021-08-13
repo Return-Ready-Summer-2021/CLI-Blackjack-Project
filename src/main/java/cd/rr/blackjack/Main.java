@@ -6,22 +6,12 @@ import java.util.Scanner;
 public class Main extends BJS {
 
 
-
-
     public static void main(String[] args) {
         BJS BJ = new BJS();
         Scanner input = new Scanner(System.in);
         char playAgainChar;
 
 
-//        BJ.startDeal();
-//        BJ.viewDealerHand();
-
-//        BJ.optionChecker();
-        // testing
-//        System.out.println(BJ.playerHand.getHand());
-//        System.out.println(BJ.bjDeck.deck.size());
-//        System.out.println(BJ.getScore());
         BJ.discardDeck.deck.clear();
         System.out.print("What is your name?: ");
         BJ.player.setName(input.nextLine());
@@ -45,6 +35,11 @@ public class Main extends BJS {
                 System.exit(0);
             }
             System.out.println("\n\n");
+
+            if (BJ.bjDeck.deck.size() < 4){
+                BJ.restartDeck();
+            }
+
             BJ.startDeal();
             BJ.optionChecker();
             BJ.dealerHit();
@@ -66,6 +61,9 @@ public class Main extends BJS {
                 BJ.clearHand();
                 System.out.println("Reseting...");
                 BJS.wait(2000);
+            }
+            if (playAgainChar == 'n'){
+                System.out.println("Game over! Come back soon!");
             }
 
 

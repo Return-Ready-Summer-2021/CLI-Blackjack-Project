@@ -15,7 +15,9 @@ public class CardENUM {
         FOUR(4),
         THREE(3),
         TWO(2);
+
         private final int Rank;
+
         Rank(int value) {
             this.Rank = value;
         }

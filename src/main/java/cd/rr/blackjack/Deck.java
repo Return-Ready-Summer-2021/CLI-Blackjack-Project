@@ -29,13 +29,7 @@ public class Deck {
             Card aCard = (Card) cardIterator.next();
 
         }
-
-
     }
-
-
-
-
 
     public ArrayList<Card> getDeck() {
         return deck;

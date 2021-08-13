@@ -31,8 +31,6 @@ public class Player {
     }
 
 
-
-
     public boolean placeBet(int newBet){
         if (newBet > totalChip) {
             System.out.println("Not enough chips.");
