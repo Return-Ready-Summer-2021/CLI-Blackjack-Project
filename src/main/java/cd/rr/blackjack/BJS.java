@@ -90,6 +90,10 @@ public class BJS {
                 restartDeck();
             }
 
+            if (player.score >= 21) {
+                break;
+            }
+
             System.out.println("Which option would you like to choose: hit, split, double, or stand? ");
             optionChecker = scanner.next();
             o = optionChecker.charAt(0);
@@ -148,6 +152,7 @@ public class BJS {
                             System.out.println("No option was chosen");
                             break;
                     }
+                    System.out.println(getSplitPlayerScore());
                 }
                 else if (handChoice == 2) {
                     switch (o) {
@@ -181,6 +186,7 @@ public class BJS {
                             break;
                     }
                 }
+                System.out.println(getSplitPlayerScore());
             }
             else {
                 switch (o) {
@@ -226,18 +232,21 @@ public class BJS {
                         System.out.println("No option was chosen");
                         break;
                 }
+                System.out.println(getPlayerScore());
             }
-
-            System.out.println(getPlayerScore());
-            System.out.println(getSplitPlayerScore());
         }
         while (player.score < 21 || o != 'd');
         System.out.println("Turn over.");
     }
 
     public void dealerHit() {
+
+        addHiddenCardScore(0);
         if ((dealer.score < player.score || dealer.score < 17)) {
             do {
+                if (dealer.score >= 21) {
+                    break;
+                }
                 if (bjDeck.deck.size() == 0){
                     restartDeck();
                 }
@@ -250,6 +259,9 @@ public class BJS {
         if (splitPlayerHand.hand.size() > 0) {
             if ((dealer.score < player.splitScore || dealer.score < 17)) {
                 do {
+                    if (dealer.score >= 21) {
+                        break;
+                    }
                     viewableDealerHand.hand.add(bjDeck.deck.get(0));
                     bjDeck.deck.remove(0);
                     int cardSlot = viewableDealerHand.hand.size() - 1;
@@ -516,10 +528,59 @@ public class BJS {
         }
 
     }
+
+    public void addHiddenCardScore(int index){
+
+        CardENUM.Rank cardRank = dealerHand.hand.get(index).getRank();
+        if (cardRank == CardENUM.Rank.TWO) {
+            dealer.score += 2;
+        }
+        else if (cardRank == CardENUM.Rank.THREE) {
+            dealer.score += 3;
+        }
+        else if (cardRank == CardENUM.Rank.FOUR) {
+            dealer.score += 4;
+        }
+        else if (cardRank == CardENUM.Rank.FIVE) {
+            dealer.score += 5;
+        }
+        else if (cardRank == CardENUM.Rank.SIX) {
+            dealer.score += 6;
+        }
+        else if (cardRank == CardENUM.Rank.SEVEN) {
+            dealer.score += 7;
+        }
+        else if (cardRank == CardENUM.Rank.EIGHT) {
+            dealer.score += 8;
+        }
+        else if (cardRank == CardENUM.Rank.NINE) {
+            dealer.score += 9;
+        }
+        else if (cardRank == CardENUM.Rank.TEN) {
+            dealer.score += 10;
+        }
+        else if (cardRank == CardENUM.Rank.JACK) {
+            dealer.score += 10;
+        }
+        else if (cardRank == CardENUM.Rank.QUEEN) {
+            dealer.score += 10;
+        }
+        else if (cardRank == CardENUM.Rank.KING) {
+            dealer.score += 10;
+        }
+        else if (cardRank == CardENUM.Rank.ACE) {
+            if (dealer.score > 10) {
+                dealer.score += 1;
+            }
+            else {
+                dealer.score += 11;
+            }
+        }
+
+    }
     void scoreChecker() {
         System.out.println(player.name + " cards: " + getPlayerHand());
         System.out.println("Dealer's Cards: " + getDealerHand());
-        addDealerScore(viewableDealerHand.hand.size() - 1);
         System.out.println(player.name + "'s score: " + getPlayerScore());
         if (splitPlayerHand.hand.size() > 0){
             System.out.println(player.name + "'s 2nd Hand: " + splitPlayerHand.getHand());
