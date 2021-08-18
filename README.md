@@ -3,7 +3,7 @@
 ## Description
 You will create a Blackjack game in the command line. The following should be possible:
 
-* The system should store the deck as a shuffled list of Cards, each card represented as a Suit and Rank
+* The system should store the deck as a shuffled list of Card, each card represented as a Suit and Rank
 * Bonus: The system should represent Suit and Rank as Enums
 * The system should deal two cards from the deck to both the dealer and player
 * The user can view one of the cards the dealer was dealt
@@ -21,84 +21,84 @@ You will create a Blackjack game in the command line. The following should be po
 ## Examples
 
 ```text
-Dealer Hand: A of D
-Your Hand: 2 of C, 3 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: A of D
+Your cd.rr.blackjack.Hand: 2 of C, 3 of H
 
 Your Move: HIT
 
-Dealer Hand: A of D
-Your Hand: 2 of C, 3 of H, 10 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: A of D
+Your cd.rr.blackjack.Hand: 2 of C, 3 of H, 10 of H
 
 Your Move: HIT
 
-Dealer Hand: A of D
-Your Hand: 2 of C, 3 of H, 10 of H, K of S
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: A of D
+Your cd.rr.blackjack.Hand: 2 of C, 3 of H, 10 of H, K of S
 
-BUST! Dealer Wins!
+BUST! cd.rr.blackjack.Dealer Wins!
 Play again (y/n): y
 
-Dealer Hand: K of C
-Your Hand: 10 of C, 9 of S
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of C
+Your cd.rr.blackjack.Hand: 10 of C, 9 of S
 
 Your Move: STAND
 
-Dealer Hand: A of D, 6 of D, 7 of H
-Your Hand: 10 of C, 9 of S
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: A of D, 6 of D, 7 of H
+Your cd.rr.blackjack.Hand: 10 of C, 9 of S
 
-Dealer Bust! You win!
+cd.rr.blackjack.Dealer Bust! You win!
 Play again (y/n): n
 
-Dealer Hand: A of D
-Your Hand: 2 of C, 9 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: A of D
+Your cd.rr.blackjack.Hand: 2 of C, 9 of H
 
 Your Move: DOUBLE
 
-Dealer Hand: K of D, 7 of D
-Your Hand: 2 of C, 9 of H, 7 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D, 7 of D
+Your cd.rr.blackjack.Hand: 2 of C, 9 of H, 7 of H
 
-Dealer must Stand! You win!
+cd.rr.blackjack.Dealer must Stand! You win!
 Play again (y/n): y
 
-Dealer Hand: K of D
-Your Hand: 9 of C, 9 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D
+Your cd.rr.blackjack.Hand: 9 of C, 9 of H
 
 Your Move: SPLIT
 
-Dealer Hand: K of D
-Your First Hand: 9 of C
-Your Second Hand: 9 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D
+Your First cd.rr.blackjack.Hand: 9 of C
+Your Second cd.rr.blackjack.Hand: 9 of H
 
 Your Move: HIT
 
-Dealer Hand: K of D
-Your First Hand: 9 of C, J of S
-Your Second Hand: 9 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D
+Your First cd.rr.blackjack.Hand: 9 of C, J of S
+Your Second cd.rr.blackjack.Hand: 9 of H
 
 Your Move: STAND
 
-Dealer Hand: K of D
-Your First Hand: 9 of C, J of S
-Your Second Hand: 9 of H
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D
+Your First cd.rr.blackjack.Hand: 9 of C, J of S
+Your Second cd.rr.blackjack.Hand: 9 of H
 
 Your Move: HIT
 
-Dealer Hand: K of D
-Your First Hand: 9 of C, J of S
-Your Second Hand: 9 of H, 6 of S
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D
+Your First cd.rr.blackjack.Hand: 9 of C, J of S
+Your Second cd.rr.blackjack.Hand: 9 of H, 6 of S
 
 Your Move: HIT
 
-Dealer Hand: K of D
-Your First Hand: 9 of C, J of S
-Your Second Hand: 9 of H, 6 of S, 9 of S
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D
+Your First cd.rr.blackjack.Hand: 9 of C, J of S
+Your Second cd.rr.blackjack.Hand: 9 of H, 6 of S, 9 of S
 
-Your Second Hand Bust!
+Your Second cd.rr.blackjack.Hand Bust!
 
-Dealer Hand: K of D, 7 of D
-Your First Hand: 9 of C, J of S
-Your Second Hand: 9 of H, 6 of S, 9 of S
+cd.rr.blackjack.Dealer cd.rr.blackjack.Hand: K of D, 7 of D
+Your First cd.rr.blackjack.Hand: 9 of C, J of S
+Your Second cd.rr.blackjack.Hand: 9 of H, 6 of S, 9 of S
 
-Dealer must Stand! You win!
+cd.rr.blackjack.Dealer must Stand! You win!
 Play again (y/n): n
 ```
 
